@@ -39,7 +39,7 @@ void print(LinkList L)
 	}
 }
 
-void RevertList(LinkList head)
+void RevertList(LinkList head)	//把头结点拆出来，然后用头插法一个个插入 
 {
 	LinkList p1,p2;
 	p1 = p2 = head->next->next;

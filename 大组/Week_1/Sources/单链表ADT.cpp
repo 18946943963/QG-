@@ -39,7 +39,7 @@ int ListEmpty(LinkList L)
 void ClearList(LinkList *L)
 {
 	LinkList p;
-	while((*L)->next != NULL)
+	while((*L)->next != NULL)	//一个个free知道到NULL 
 	{
 		p = (*L)->next;
 		(*L)->next = p->next;
@@ -66,7 +66,7 @@ void GetElem(LinkList L, int i, ElemType *e)
 		return;
 	LinkList p = L->next;
 	int j;
-	for(j=1; j<i; j++)
+	for(j=1; j<i; j++)	//找到位置，赋值 
 		p = p->next;
 	*e = p->data;
 }
@@ -77,7 +77,7 @@ int LocateElem(LinkList L, ElemType e)
 	int i=1;
 	while(p!=NULL)
 	{
-		if(p->data == e)
+		if(p->data == e)	//每一次i加一 
 			return i;
 		p = p->next;
 		i++;
@@ -93,9 +93,9 @@ void ListInsert(LinkList *L, int i, ElemType e)
 	LinkList P = (*L)->next;
 	Pr->data = e;
 	int j;
-	for(j=1; j<i-1; j++)
+	for(j=1; j<i-1; j++)		//找位置 
 		P = P->next;
-	Pr->next = P->next;
+	Pr->next = P->next;			//插入 
 	P->next = Pr;
 }
 
@@ -105,9 +105,9 @@ void ListDelete(LinkList *L, int i, ElemType *e)
 		return;
 	LinkList Pr, P = (*L)->next;
 	int j;
-	for(j=1; j<i-1; j++)
+	for(j=1; j<i-1; j++)		//找位置 
 		P = P->next;
-	Pr = P->next;
+	Pr = P->next;			//删除，pr前置指针 
 	P->next = Pr->next;
 	*e = Pr->data;
 	free(Pr);

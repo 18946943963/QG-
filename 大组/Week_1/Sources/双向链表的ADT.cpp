@@ -51,9 +51,9 @@ void DuListInsert(DuLinkList *L, int i, ElemType e)
 	DuLinkList Pr = (*L)->next;
 	P->data = e;
 	int j;
-	for(j=1; j<i-1; j++)
+	for(j=1; j<i-1; j++)		//找到位置 
 		Pr = Pr->next;
-	P->next = Pr->next;
+	P->next = Pr->next;			//插入 
 	Pr->next->prior = P;
 	Pr->next = P;
 	P->prior = Pr;
@@ -65,9 +65,9 @@ void DuListDelete(DuLinkList *L, int i, ElemType *e)
 		return;
 	DuLinkList P, Pr = (*L)->next;
 	int j;
-	for(j=1; j<i-1; j++)
+	for(j=1; j<i-1; j++)	//找到位置 
 		Pr = Pr->next;
-	P = Pr->next;
+	P = Pr->next;			//置换 
 	Pr->next = P->next;
 	P->next->prior = P;
 	*e = P->data;
@@ -80,7 +80,7 @@ void RevertPrint(DuLinkList L)
 	DuLinkList p = L->prior;
 	while(p!=L)
 	{
-		printf("%d ",p->data);
+		printf("%d ",p->data);	//用prior反向遍历 
 		p = p->prior;
 	}
 }
