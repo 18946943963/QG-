@@ -46,12 +46,12 @@ int main(void)
 	fflush(stdin);
 	getchar();
 	char c;
-	do
+	do									//用一个while循环实现功能多次使用 
 	{
 		system("cls");
-		printf("请选择你要的功能:\n1、单链表奇偶调换\n2、找到单链表中点\n3、判断链表是否成环\n4、反转链表\n5、退出\n");
+		printf("请选择你要的功能:\n1、单链表奇偶调换\n2、找到单链表中点\n3、判断链表是否成环\n4、反转链表\n5、退出\n");	//输出功能列表 
 		scanf("%c",&c);
-		switch(c)
+		switch(c)						//根据输入选择调用对应的函数 
 		{
 			case '1':
 				{
@@ -89,14 +89,14 @@ int main(void)
 			case '5':break;
 			default:
 				{
-					printf("输入错误请重新输入\n");
+					printf("输入错误请重新输入\n");		//输入不是1-5时，提示输入错误 
 					break;
 				}
 		}
 		printf("\n按回车以继续");
 		fflush(stdin);
 		getchar();
-		if(c == '5')break; 
+		if(c == '5')break; 			//当输入5时，表示退出循环，即退出程序 
 	}while(1);
 	return 0;
 }
